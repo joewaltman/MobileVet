@@ -53,11 +53,7 @@
     </div>
 </header>
 
-    
-<?php
-// display form if user has not clicked submit
-if (!isset($_POST["submit"])) {
-  ?>    
+      
     <section class="slice bg-3">
         <div class="w-section inverse">
             <div class="container">
@@ -80,7 +76,7 @@ if (!isset($_POST["submit"])) {
                                 
                                 <div class="form-body">
 
-                                    <form method="post" class="form-light padding-15" action="<?php echo $_SERVER["PHP_SELF"];?>">
+                                    <form method="post" class="form-light padding-15" action="send_form_email.php">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -131,19 +127,6 @@ if (!isset($_POST["submit"])) {
     
     </section>
     
-      <?php 
-    } else {    // the user has submitted the form
-        $from = "hello@vetpronto.com";
-        $subject = "VetPronto Appointment Requested";
-        $message = $_POST["firstName"].$_POST["lastName"].$_POST["txtEmail"].$_POST["phoneNumber"];
-        // message lines should not exceed 70 characters (PHP rule), so wrap it
-        $message = wordwrap($message, 70);
-        // send mail
-        mail("joe@vetrounds.com",$subject,$message,"From: $from\n");
-        echo "Thank you for request. We will contact you shortly to schedule an appointment";
-      
-    }
-    ?>
     
         <footer class="footer">
         <div class="container">
