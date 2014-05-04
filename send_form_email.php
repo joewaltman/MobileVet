@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['submit'])) {
-   $to = 'joe@vetrounds.com.com' ;     //put your email address on which you want to receive the information
+   $to = 'joe@vetrounds.com' ;     //put your email address on which you want to receive the information
    $subject = 'Appointment request at VetPronto';   //set the subject of email.
    $headers  = 'MIME-Version: 1.0' . "\r\n";
    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
