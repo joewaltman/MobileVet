@@ -36,7 +36,7 @@ if(true) {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-47778113-1', 'vetpronto.com');
+  ga('create', 'UA-47778113-5', 'vetpronto.com');
   ga('send', 'pageview');
 
 </script>
