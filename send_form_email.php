@@ -96,8 +96,8 @@ if(true) {
                                             	<div class="col">
                                                    <h4>Contact us</h4>
                                                    <ul>
-                                                        <li>68 Hancock, San Francisco - United States</li>
-                                                        <li>Phone: +1 415 343 5637 </li>
+                                                       <li>2001 Westlake Ave N #45 Seattle - United States</li>
+                                                       <li>Phone: +1 800 239 3261 </li>
                                                         <li>Email: <a href="mailto:hello@vetpronto.com" title="Email Us">hello@vetpronto.com</a></li>
                                                         <li>Caring for your pet is our passion</li>
                                                     </ul>
