@@ -39,7 +39,7 @@
 <header>    
 	<div id="navOne" class="navbar navbar-wp" role="navigation">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" itemtype="http://schema.org/Organization">
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html" title="VetPronto - Veterinary House Calls">
-                	<img src="images/VetProntoLogo.png" alt="VetPronto - Veterinary House Calls">
+                	<img itemprop="logo" src="images/VetProntoLogo.png" alt="VetPronto - Veterinary House Calls">
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -74,11 +74,11 @@
 <div class="pg-opt pin hidden-xs">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 hidden-xs" align="left">
-                <h2>Vet House Calls</h2>
+            <div class="col-sm-6 hidden-xs" align="left" itemtype="http://schema.org/Services">
+                <h2><span itemprop="serviceType">Vet House Calls</span></h2>
             </div>
-            <div class="col-sm-6 hidden-xs" align="right">
-                <h2>Call now for an appointment <a href="tel:18002393261">(800)239-3261</a>
+            <div itemtype="http://schema.org/Organization" class="col-sm-6 hidden-xs" align="right">
+                <h2>Call now for an appointment <a href="tel:18002393261"><span itemprop="telephone">(800)239-3261</span></a>
                 </h2>
             </div>
         </div>
@@ -159,7 +159,7 @@
                     <a href="sign-up.html" class="btn btn-two btn-lg ls-l" style="top:80%; left:80px;" data-ls="offsetxin:0;offsetyin:250;durationin:1000;delayin:3500;offsetxout:0;offsetyout:-8;easingout:easeInOutQuart;scalexout:1.2;scaleyout:1.2;">Make an appointment</a>
                 </div>
                 
-                <div class="ls-slide" data-ls="transition2d:1;timeshift:-1000;slidedelay:8000">
+                <div class="ls-slide" data-ls="transition2d:1;timeshift:-1000;slidedelay:8000" itemtype="http://schema.org/Organization">
                     <!-- slide background -->
                     <img src="images/slider/fw-1.jpg" class="ls-bg" alt="Slide background"/>
                     
@@ -183,7 +183,7 @@
                         <i class="fa fa-check-circle-o"></i>  Most routine therapies...just ask!
                     </h3>
                     <p class="ls-l text-standard" style="width:500px; top:65%; left:80px;" data-ls="offsetxin:0;offsetyin:250;durationin:1000;delayin:3500;offsetxout:0;offsetyout:-8;easingout:easeInOutQuart;scalexout:1.2;scaleyout:1.2;">
-                    VetPronto is a new kind of mobile vet service that is focused on keeping veterinary care reasonable and convenient.  We have wellness plans to help keep your pet current on all preventative care, have cloud based medical records you can access from anywhere and work seamlessly with other veterinary clinics and specialists for procedures requiring a hospital visit.
+                    <span itemprop="brand">VetPronto</span> is a new kind of mobile vet service that is focused on keeping veterinary care reasonable and convenient.  We have wellness plans to help keep your pet current on all preventative care, have cloud based medical records you can access from anywhere and work seamlessly with other veterinary clinics and specialists for procedures requiring a hospital visit.
 
                     </p>
                     <a href="sign-up.html" class="btn btn-two btn-lg ls-l" style="top:84%; left:80px;" data-ls="offsetxin:0;offsetyin:250;durationin:1000;delayin:4000;offsetxout:0;offsetyout:-8;easingout:easeInOutQuart;scalexout:1.2;scaleyout:1.2;">Make an appointment</a>
