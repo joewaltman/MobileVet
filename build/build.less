@@ -2,7 +2,7 @@
 // and imports the included datepicker.less to output a minimal datepicker.css
 //
 // Usage:
-//     lessc build.less datepicker.css
+//     lessc build.less ../css/datetimepicker.css
 //
 // Variables and mixins copied from bootstrap 2.0.2
 
@@ -10,9 +10,9 @@
 @grayLight:             #999;
 @grayLighter:           #eee;
 @white:                 #fff;
-@linkColor:             #08c;
+@linkColor:             #f00;
 @btnPrimaryBackground:  @linkColor;
-@orange:                #f89406;
+@orange:                #f00;
 
 // Mixins
 
@@ -42,9 +42,9 @@
 }
 
 // Gradient Bar Colors for buttons and alerts
-.gradientBar(@primaryColor, @secondaryColor) {
-  #gradient > .vertical(@primaryColor, @secondaryColor);
-  border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
+.gradientBar(@primaryColor, @primaryColor) {
+  #gradient > .vertical(@primaryColor, @primaryColor);
+  border-color: @primaryColor @primaryColor darken(@primaryColor, 0%);
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
 }
 
@@ -63,4 +63,4 @@
   }
 }
 
-@import "../less/datepicker.less";
+@import "../css/datetimepicker.less";

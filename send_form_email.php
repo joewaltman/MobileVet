@@ -9,10 +9,12 @@ if(true) {
                <tr><td>E-Mail</td><td>".$_POST['txtEmail']."</td></tr>
                <tr><td>Phone Number</td><td>".$_POST['phoneNumber']."</td></tr> </table>" ;
   */             
-   $message = "First Name".$_POST['firstName']."<br>";
-   $message .= "Last Name".$_POST['lastName']."<br>";
-   $message .= "Email".$_POST['txtEmail']."<br>";
-   $message .= "Phone Number".$_POST['phoneNumber'];            
+   $message = "First Name: ".$_POST['firstName']."<br>";
+   $message .= "Last Name: ".$_POST['lastName']."<br>";
+   $message .= "Email: ".$_POST['txtEmail']."<br>";
+   $message .= "Phone Number: ".$_POST['phoneNumber']."<br>";   
+   $message .= "Time: ".$_POST['apptTime']."<br>";  
+   $message .= "Reason: ".$_POST['reason']."<br>";         
    mail($to, $subject, $message, $headers);
 /*   header('Location: contact.php');
 */
