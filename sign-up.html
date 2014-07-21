@@ -80,7 +80,7 @@
                         <div class="text-center">
                             <h2>Make an Appointment</h2>
                             <p style="font-size:16px;">
-                               Book your appointment online! Alternatively, call: <a href="tel:12063314011" onClick=”_gaq.push(['_trackEvent', 'Lead', 'ClickToCall']>(206) 331-4011</a> to speak with someone in person. 
+                               Book your appointment online! Alternatively, call: <a href="tel:12063314011"  id="phonelink">(206) 331-4011</a> to speak with someone in person. 
                             </p>
     
                         </div>
@@ -273,6 +273,10 @@
 
     });
 });
+
+	$('#phonelink').on('click', function() {
+      ga('send', 'event', 'Lead', 'ClickToCall');
+    });
 
 </script>
 </body>
