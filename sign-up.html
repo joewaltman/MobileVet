@@ -53,13 +53,13 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li class="dropdown">
-                        <a href="blog">Blog</a>
+                        <a href="http://vetpronto.com/blog/">Blog</a>
                     </li>
                     <li class="dropdown">
-                        <a href="pricing.html">How Much Does It Cost?</a>
+                        <a href="http://vetpronto.com/index.html#pricing">How Much Does It Cost?</a>
                     </li>
                     <li class="dropdown">
-                        <a href="team-member.html">Meet The Vets</a>
+                        <a href="http://vetpronto.com/index.html#vets">Meet The Vets</a>
                     </li>
                     <li class="active">
                         <a href="#" >Make An Appointment</a>
@@ -80,7 +80,7 @@
                         <div class="text-center">
                             <h2>Make an Appointment</h2>
                             <p style="font-size:16px;">
-                               Book your appointment online! Alternatively, call: <a href="tel:12063314011" onClick=”_gaq.push(['_trackEvent', 'Lead', 'ClickToCall']>(206) 331-4011</a> to speak with someone in person. 
+                               Book your appointment online! Alternatively, call: <a href="tel:12063314011"  id="phonelink">(206) 331-4011</a> to speak with someone in person. 
                             </p>
     
                         </div>
@@ -273,6 +273,10 @@
 
     });
 });
+
+	$('#phonelink').on('click', function() {
+      ga('send', 'event', 'Lead', 'ClickToCall');
+    });
 
 </script>
 </body>
