@@ -1,24 +1,36 @@
 <?php
-if(true) {  
-   $to = 'joe@vetrounds.com' ;     //put your email address on which you want to receive the information
-   $subject = 'Appointment request at VetPronto';   //set the subject of email.
-   $headers  = 'MIME-Version: 1.0' . "\r\n";
-   $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
- /*  $message = "<table><tr><td>First Name</td><td>".$_POST['firstName']."</td></tr>
-               <tr><td>Last Name</td><td>".$_POST['lastName']."</td></tr>
-               <tr><td>E-Mail</td><td>".$_POST['txtEmail']."</td></tr>
-               <tr><td>Phone Number</td><td>".$_POST['phoneNumber']."</td></tr> </table>" ;
-  */             
-   $message = "First Name: ".$_POST['firstName']."<br>";
-   $message .= "Last Name: ".$_POST['lastName']."<br>";
-   $message .= "Email: ".$_POST['txtEmail']."<br>";
-   $message .= "Phone Number: ".$_POST['phoneNumber']."<br>";   
-   $message .= "Time: ".$_POST['apptTime']."<br>";  
-   $message .= "Reason: ".$_POST['reason']."<br>";         
-   mail($to, $subject, $message, $headers);
-/*   header('Location: contact.php');
-*/
+$client_name = $_POST["firstName"] . " " . $_POST['lastName'];
+$client_email = $_POST["txtEmail"];
+$client_phone = $_POST["phoneNumber"];
+$appt_time = $_POST["apptTime"];
+$appt_reason = $_POST["reason"];
+
+if (strlen ( $client_name) < 2)
+    $error = "You must enter your name.";
+elseif (empty($client_email))
+    $error = "You must enter your email address.";
+elseif (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $client_email))
+    $error = "You must enter a valid email address.";
+elseif (strlen ($client_phone) < 10)
+    $error = "You must enter a valid phone number.";
+
+// check if an error was found - if there was, send the user back to the form
+if (isset($error)) {
+    header("Location: sign-up.html?e=".urlencode($error)); exit;
 }
+
+$to = 'joe@vetrounds.com' ;     //put your email address on which you want to receive the information
+$subject = 'Appointment request at VetPronto';   //set the subject of email.
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+$email_content = "Name:<br>$client_name<br><br>";
+$email_content .= "Email:<br>$client_email<br><br>";
+$email_content .= "Phone:<br>$client_phone<br><br>";
+$email_content .= "Time:<br>$appt_time<br><br>";
+$email_content .= "Reason:<br>$appt_reason<br><br>";
+
+mail($to, $subject, $email_content, $headers);
 ?>
 
 <html>
@@ -104,6 +116,12 @@ if(true) {
 </header>
 <br><br><br><br>
                         <div class="text-center">
+                            <?php
+        // check for a successful form post
+        if (isset($_GET['s'])) echo "<div class=\"alert alert-success\">".$_GET['s']."</div>";
+        // check for a form error
+        elseif (isset($_GET['e'])) echo "<div class=\"alert alert-danger\">".$_GET['e']."</div>";
+?>
                             <h3>Thanks for requesting an appointment. We will contact you shortly to schedule your appointment</h3>
                         </div>
                             <br><br><br><br>
@@ -195,3 +213,7 @@ if(true) {
                             <script type="text/javascript" src="js/jquery.wp.switcher.js"></script>
                             </body>
                             </html>
+
+                            <?php
+    header("Location: sign-up.html?s=".urlencode("Success!  Someone will contact you shortly to confirm the appointment")); exit;
+    ?>

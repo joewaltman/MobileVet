@@ -93,8 +93,9 @@
                             <div class="w-box sign-in-wr bg-5">
                                 
                                 <div class="form-body">
+                                    <div id = "alert_placeholder"></div>
 
-                                    <form method="post" class="form-light padding-15" action="send_form_email.php">
+                                    <form method="post" class="form-light padding-15" method="POST"  action="send_form_email.php">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -255,6 +256,9 @@
 <script type="text/javascript" src="js/jquery.wp.switcher.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript">
+
+
+
     $(document).ready(function() {
         var date = new Date();
     $('.form_datetime').datetimepicker({
@@ -272,6 +276,26 @@
         startDate: date
 
     });
+
+    //Find URL params
+    var urlParams;
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+
+    if ("e" in urlParams) {
+        $('#alert_placeholder').html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>' + urlParams["e"] + '</span></div>');
+    }
+    if ("s" in urlParams) {
+        $('#alert_placeholder').html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><span>' + urlParams["s"] + '</span></div>');
+    }
+    
 });
 
 	$('#phonelink').on('click', function() {
