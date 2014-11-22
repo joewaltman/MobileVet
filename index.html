@@ -30,6 +30,67 @@
 
 </script>
 
+<meta name="google-site-verification" content="v16LPxgFov1nyAd_9YWamGjdYrAk9HTZFS2BvLDTbHQ" />
+
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&amp;v=3"></script>
+
+<script type="text/javascript">
+  function initialize() {
+    google.maps.visualRefresh = true;
+    var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+      (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+    if (isMobile) {
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
+    }
+    var mapDiv = document.getElementById('googft-mapCanvas');
+    mapDiv.style.width = isMobile ? '100%' : '400px';
+    mapDiv.style.height = isMobile ? '100%' : '300px';
+    var map = new google.maps.Map(mapDiv, {
+      center: new google.maps.LatLng(37.763722, -122.447948),
+      zoom: 11,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
+
+    layer = new google.maps.FusionTablesLayer({
+      map: map,
+      heatmap: { enabled: false },
+      query: {
+        select: "col2",
+        from: "13ZPJ45fU8mJInU5g1ocLW8ig8_OZtoo_udT_2HJC",
+        where: ""
+      },
+      options: {
+        styleId: 2,
+        templateId: 2
+      }
+    });
+
+    if (isMobile) {
+      var legend = document.getElementById('googft-legend');
+      var legendOpenButton = document.getElementById('googft-legend-open');
+      var legendCloseButton = document.getElementById('googft-legend-close');
+      legend.style.display = 'none';
+      legendOpenButton.style.display = 'block';
+      legendCloseButton.style.display = 'block';
+      legendOpenButton.onclick = function() {
+        legend.style.display = 'block';
+        legendOpenButton.style.display = 'none';
+      }
+      legendCloseButton.onclick = function() {
+        legend.style.display = 'none';
+        legendOpenButton.style.display = 'block';
+      }
+    }
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
 </head>
 <body>
 
@@ -85,7 +146,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 hidden-xs" align="left" itemtype="http://schema.org/Services">
-                <h2><span>Mobile Veterinary Services in <a href="seattle-mobile-vet.html">Seattle</a> and <a href="san-francisco-mobile-vet.html">San Francisco</a></span></h2>
+                <h2><span>Mobile Veterinary Services in San Francisco</span></h2>
             </div>
             <div class="col-sm-4 hidden-xs" style="padding-top:10px;" align="center">
                 <a href="https://itunes.apple.com/us/app/vetpronto/id887602275?ls=1&mt=8" >
@@ -223,7 +284,6 @@
 </div>
 
 
-
 <section class="slice bg-2 p-15 hidden-xs">
     <div class="cta-wr">
         <div class="container">
@@ -231,7 +291,7 @@
                 <div class="col-md-8">
                     <h1>
                         
-                        <span><strong>VetPronto</strong> is currently offering mobile vet services in <a href="san-francisco-mobile-vet.html" style="color: black">San Francisco</a> and <a href="seattle-mobile-vet.html" style="color: black">Seattle</a></span>
+                        <span><strong>VetPronto</strong> is currently house call vet services throughout San Francisco</span>
                         
                         <!--
                          <span itemscope itemtype="http://schema.org/LocalBusiness" itemref="_image2 _telephone3 _email4"><strong id="_name1" itemprop="name">VetPronto</strong> can have your Dog or Cat seen by a mobile vet on your schedule in 
@@ -262,6 +322,70 @@
         </div>
     </div>
 </section>
+<section class="slice bg-3">
+        <div class="w-section inverse">
+            <div class="container">
+                <h3 class="section-title">San Francisco Coverage Area</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="googft-mapCanvas"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-ambulance"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>Convenient</h4>
+                                    <p>A VetPronto veterinarian will come to your home or office anywhere in San Francisco. We offer evening and weekend appointments. </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-stethoscope"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>Safe</h4>
+                                    <p>Avoid the germs and sick pets at the animal hospital. We will come to where your pet is most comfortable, no need to struggle with transporting your pet to the clinic.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-money"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>Cost Effective</h4>
+                                    <p>Our costs are comparable to those of a normal clinic. For $129 you will get a house call and full medical exam. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div align="center">
+                        <a href="sign-up.html" class="btn btn-lg btn-two">Schedule Appointment</a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
 
 
 <section class="slice bg-4">
@@ -278,7 +402,7 @@
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                <h4><a href="http://www.cascadiannomads.com/pet-adventure-blog/thorough-routine-veterinary-exams-at-home-on-the-couch-vetprontocom-seattle-review" target="_blank">Bethany O'Brien</a></h4>
+                                <h4><a href="http://www.cascadiannomads.com/pet-adventure-blog/thorough-routine-veterinary-exams-at-home-on-the-couch-vetprontocom-seattle-review" target="_blank">Cascadian Nomads Bethany</a></h4>
                                 <p>".... the pets didn't seem to know it was a vet visit. They just hung out at home on the couch."</p>
                             </div>
                         </div>
@@ -444,65 +568,70 @@
             </div>
         </div>
 
+            <section class="slice bg-3">
+            <div class="w-section inverse">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/prv/drhur.jpg" class="img-responsive" alt="Dr. Brian Hur">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="section-title">Dr. Brian Hur, DVM</h3>
+                            <p>
+                                Dr. Brian Hur grew up shadowing his grandfather (who was also a veterinarian) at various small animal hospitals and the Santa Barbara Zoo. These experiences made Dr. Hur realized early on that he wanted to follow in his grandfather's footsteps and dedicate his life to helping the welfare of animals. Dr. Hur received both his undergraduate degree and degree in veterinary medicine from Washington State University and is an active member of the Association of Veterinary Informatics. He has worked in both general practice and emergency medicine, and is dedicated to bringing quality veterinary care to as many clients as possible. Dr. Hur lives with his wife Elena, their daughter Maya, cat Teemo and Boston Terrier Playa. 
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice bg-3" id="">
+            <div class="w-section inverse">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/prv/drdhoppe.png" class="img-responsive" alt="Dr. Rachel Snyder">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="section-title">Dr. Dorothy Hoppe, DVM</h3>
+                            <p>
+                                Dr. Hoppe received her undergraduate degree from New College of Florida. She began medical school at the University of Florida and resigned after realizing her heart lay in veterinary medicine. She received her veterinary degree from Tufts University and completed a one year rotating internship at a specialty and emergency practice in Walnut Creek, CA. Since then she has practiced both emergency and general medicine at practices in the East Bay and San Francisco. 
+
+                            </p>
+                            <p>
+                                 Dr. Hoppe lives in San Francisco with her sister, Margaret Hoppe, who is also a veterinarian, and a small herd of cats. She enjoys travel, attempting to garden on a roof deck, hiking, SCUBA and reading. 
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="slice bg-3">
-        <div class="w-section inverse">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/prv/drhur.jpg" class="img-responsive" alt="Dr. Brian Hur">
+            <div class="w-section inverse">
+                <div class="container">
+                    <div class="row">
+                    	<div class="col-md-6">
+                            <img src="images/prv/drmhoppe.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="section-title">Dr. Margaret Hoppe, DVM</h3>
+                            <p>
+                                 Dr. Hoppe graduated from the University of Florida, College of Veterinary Medicine in 2006 and completed her internship at Blue Pearl Veterinary Partners in New York, New York in 2007.  After 3 years with a Manhattan-based practice, Dr. Hoppe moved to San Francisco in 2011 and immersed herself in the local animal welfare community as the Veterinary Coordinator for Vet SOS, a local non-profit organization which provides veterinary medical services to underserved communities. Dr. Hoppe is a staff veterinarian at the SPCA Veterinary Hospital. 
+                            </p>
+                            <p>
+                                Besides her interest in animal medicine and a special interest in dentistry, Dr. Hoppe spends her time cycling, scuba diving, and playing French horn in amateur orchestras. 
+                            </p>    
+                        </div>
+
                     </div>
-                    <div class="col-md-6">
-                        <h3 class="section-title">Dr. Brian Hur, DVM</h3>
-                        <p>
-                            Dr. Brian Hur grew up shadowing his grandfather (who was also a veterinarian) at various small animal hospitals and the Santa Barbara Zoo. These experiences made Dr. Hur realized early on that he wanted to follow in his grandfather's footsteps and dedicate his life to helping the welfare of animals. Dr. Hur received both his undergraduate degree and degree in veterinary medicine from Washington State University and is an active member of the Association of Veterinary Informatics. He has worked in both general practice and emergency medicine, and is dedicated to bringing quality veterinary care to as many clients as possible. Dr. Hur lives in Seattle with his wife Elena, their daughter Maya, cat Teemo and Boston Terrier Playa. 
-                        </p>
-                    </div>
-                    
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="slice bg-3" id="">
-        <div class="w-section inverse">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/prv/drsnyder.png" class="img-responsive" alt="Dr. Rachel Snyder">
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="section-title">Dr. Rachel Snyder, DVM</h3>
-                        <p>
-                            Dr. Snyder obtained her Bachelor of Arts degree from The Evergreen State College in Olympia, WA and then went on to get her Doctorate of Veterinary Medicine from Washington State University. In veterinary school, she was a member of the Behavior Club, the Humane Society Veterinary Medical Association and the Feline Club. 
-                        </p>
-                        <p>
-                            Dr. Snyder and her fiancé, Aaron, like to spend time with their dog, Rio, and their three cats, Puck, Toulouse and Mr. Kitty. They enjoy hiking, road trips and art. Dr. Snyder is also a musician. She sings and plays the guitar, ukulele and banjo.
-                        </p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="slice bg-3">
-        <div class="w-section inverse">
-            <div class="container">
-                <div class="row">
-                	<div class="col-md-6">
-                        <img src="images/prv/drfuelleman.jpg" class="img-responsive" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="section-title">Dr. Tracy Fuelleman, DVM</h3>
-                        <p>
-                             Dr.Tracy Fuelleman graduated from the University of Minnesota School of Veterinary Medicine in 1989. After practicing for a year in California she returned to the Pacific Northwest and has practiced in several clinics from Everett to Seattle. Her areas of of interest are clinical pathology and preventative medicine. When not working she enjoys gardening, reading, travel, and cooking.
-                        </p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+
     
         <section class="slice bg-2 p-15">
             <div class="cta-wr">
@@ -575,7 +704,7 @@
              	<div class="col">
                     <h4>Having an emergency?</h4>
                     <p>
-                    If your pet is experiencing an emergency, please call the Emerald City Emergency Clinic at (206) 634-9000
+                    If your pet is experiencing an emergency, please call Pets Unlimited at (415) 563-6700
                     <br><br>
                     
                     </p>
